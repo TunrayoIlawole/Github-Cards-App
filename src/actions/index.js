@@ -9,7 +9,7 @@ export const getProfile = (username) => {
 
             dispatch({type: 'GET_PROFILE_REQUEST_SUCCESS', payload: response.data})
         }catch (e){
-            dispatch({type: 'GET_PROFILE_REQUEST_ERROR', payload: e.message })
+            dispatch({type: 'GET_PROFILE_REQUEST_ERROR', payload: e?.response.data?.message || e.message })
         }
 
     };

@@ -2,16 +2,23 @@ import React from 'react';
 import Card from './Card';
 import {connect} from 'react-redux';
 import RingLoader from 'react-spinners/RingLoader';
-import {useMemo, useState} from 'react';
+import {useMemo, useEffect} from 'react';
+import {toast} from 'react-hot-toast';
 
 const CardList = ({ profile }) => {
-    const { profiles, isLoading } = profile;
+    const { profiles, isLoading, hasError, errorMessage } = profile;
 
     const cards = useMemo(() => {
         return profiles.map(profile => {
             return <Card {...profile} />
         })
     }, [profiles])
+
+    useEffect(() => {
+        if(hasError){
+            toast.error(errorMessage)
+        }
+    }, [hasError, errorMessage])
 
     return (
         <div>

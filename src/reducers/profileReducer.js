@@ -27,7 +27,7 @@ export default (state = initialState, action) => {
 
         case 'GET_PROFILE_REQUEST_ERROR': {
             return {
-                ...state,
+                ...initialState,
                 hasError: true,
                 errorMessage: action.payload
             }
