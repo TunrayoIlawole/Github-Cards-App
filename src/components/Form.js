@@ -11,12 +11,10 @@ class Form extends Component {
     handleSubmit = async (e) => {
         e.preventDefault();
         const resp = await this.props.getProfile(this.state.username);
-        console.log(this.props.profile);
-        console.log(this.state.username);
+        console.log(this.props.profile.profiles);
     }
 
     render() {
-        console.log(this.props.profile);
         return (
             <form onSubmit = {this.handleSubmit}>
                 <input 
